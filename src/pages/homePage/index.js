@@ -8,7 +8,7 @@ export default function HomePage() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    if (websocket) {
+    if (!!websocket?.connected) {
       websocket.emit("message", {
         end_user_id: userId,
         web_page_url: pathname,

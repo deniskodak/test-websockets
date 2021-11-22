@@ -9,7 +9,7 @@ export default function ServicesPage() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    if (websocket) {
+    if (!!websocket?.connected) {
       websocket.emit("message", {
         end_user_id: userId,
         web_page_url: pathname,
@@ -19,7 +19,7 @@ export default function ServicesPage() {
 
   return (
     <div>
-      <h1>Sorry.. here are not services yet :(</h1>
+      <h2>Sorry.. here are not services yet :(</h2>
     </div>
   );
 }
